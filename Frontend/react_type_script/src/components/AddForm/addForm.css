@@ -1,0 +1,10 @@
+.form {
+    /* padding: 10px; */
+}
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    margin-right: 10px;
+}

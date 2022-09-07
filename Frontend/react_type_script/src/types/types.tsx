@@ -1,15 +1,14 @@
 export interface ITodo {
     id: string,
     title: string,
-    desciption: string,
-    endedAt: Date,
+    description: string,
     isDone: boolean
 }
 
-export class Todo implements ITodo {
-    id: string = "";
-    title: string = "";
-    desciption: string = "";
-    isDone: boolean = false;
-    endedAt: Date = new Date();
-}
+// export class Todo implements ITodo {
+//     id: string = "";
+//     title: string = "";
+//     description: string = "";
+//     isDone: boolean = false;
+//     endedAt: Date = new Date();
+// }

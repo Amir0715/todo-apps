@@ -1,0 +1,50 @@
+.todoItem {
+    margin-bottom: 10px;
+    position: relative;
+    /* margin: 5px; */
+}
+
+.todoItem-title input {
+    border: 0;
+    border-bottom: solid 1px #eee;
+    font-size: 1.4em;
+    width: 100%;
+}
+
+.todoItem-title input:focus {
+    outline: none;
+}
+
+.todoItem-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 10px 15px;
+    background-color: white;
+    z-index: 2;
+}
+
+.todoItem-indicator {
+    z-index: 1;
+    position: absolute;
+    display: block;
+    width: 60px;
+    top: 1px;
+    bottom: 1px;
+    right: -20px;
+    background-color: red;
+    border-radius: 12px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+}
+
+.todoItem-indicator:hover {
+    transform: translate(15px, 0px);
+}
+
+.todoItem-indicator.done {
+    background-color: green;
+}

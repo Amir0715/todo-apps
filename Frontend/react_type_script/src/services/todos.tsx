@@ -1,8 +1,9 @@
-import { ITodo, Todo } from "../types/types";
+import { TodoStore } from "../stores/TodoStore";
+import { ITodo } from "../types/types";
 
 export function get_todos(): ITodo[] {
     // TODO: Получаем элементы и возвращаем
-    return [new Todo()];
+    return [new TodoStore()];
 }
 
 export function delete_todos(id: string): boolean {
@@ -12,7 +13,7 @@ export function delete_todos(id: string): boolean {
 
 export function get_todo(id: string): ITodo {
     // TODO: Получаем элемент
-    return new Todo();
+    return new TodoStore();
 }
 
 export function create_todos(todo: ITodo): string {
