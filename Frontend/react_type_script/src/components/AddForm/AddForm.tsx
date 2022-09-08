@@ -2,18 +2,22 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import "./addForm.css";
 
-type FormData = {
+export type FormData = {
     title: string;
     done: boolean;
 }
 
-interface AddFormProps { }
+interface AddFormProps {
+    onSubmit: (data: FormData) => void
+}
 
 const AddForm = (props: AddFormProps) => {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
 
     const onSubmit = handleSubmit((data: FormData) => {
         console.log(data);
+        props.onSubmit(data);
+        reset();
     })
 
     return (

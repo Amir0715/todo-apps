@@ -1,13 +1,16 @@
+import { v4 as uuidv4 } from 'uuid';
 import { makeAutoObservable } from "mobx";
 import { ITodo } from "../types/types";
 
-export class TodoStore implements ITodo {
+export class Todo implements ITodo {
     id: string = "";
     title: string = "";
     isDone: boolean = false;
-    description: string = "";
 
-    constructor() {
+    constructor(title: string, isDone: boolean) {
+        this.id = uuidv4();
+        this.isDone = isDone;
+        this.title = title;
         makeAutoObservable(this);
     }
 
@@ -17,9 +20,5 @@ export class TodoStore implements ITodo {
 
     setTitle(title: string) {
         this.title = title;
-    }
-
-    setDescription(description: string) {
-        this.description = description;
     }
 }

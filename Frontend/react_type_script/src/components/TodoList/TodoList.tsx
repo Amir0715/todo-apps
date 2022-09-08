@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { ITodo } from '../../types/types';
 import TodoItem from '../TodoItem/TodoItem';
 import { observer } from 'mobx-react';
 import "./todoList.css";
+import { Todo } from '../../stores/Todo';
 
 export interface ITodoListProps {
-    todos: ITodo[],
+    todos: Todo[],
 }
 
 const TodoList = observer(({ todos }: ITodoListProps) => {

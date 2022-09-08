@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { ITodo } from '../../types/types';
 import { observer } from 'mobx-react';
 import "./todoItem.css";
+import { Todo } from '../../stores/Todo';
 
 export interface ITodoItemProps {
-    todo: ITodo
+    todo: Todo
 }
 
 const TodoItem = observer(({ todo }: ITodoItemProps) => {
     const onRenameTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
-        todo.title = e.target.value;
+        todo.setTitle(e.target.value);
     }
 
     return (
@@ -21,7 +21,7 @@ const TodoItem = observer(({ todo }: ITodoItemProps) => {
                 {/* <div className="todoItem-description">{todo.description}</div> */}
 
             </div>
-            <div className={todo.isDone ? "todoItem-indicator done" : "todoItem-indicator"} onClick={() => todo.isDone = !todo.isDone}>
+            <div className={todo.isDone ? "todoItem-indicator done" : "todoItem-indicator"} onClick={() => todo.toggle()}>
 
             </div>
         </div>
