@@ -9,10 +9,27 @@
     border-bottom: solid 1px #eee;
     font-size: 1.4em;
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .todoItem-title input:focus {
     outline: none;
+    border-bottom: solid 1px rgb(51, 70, 243);
+}
+
+.todoItem-description textarea {
+    border: 0;
+    color: rgb(121, 121, 121);
+    border-bottom: solid 1px #eee;
+    font-size: 1em;
+    width: 100%;
+    resize: none;
+}
+
+.todoItem-description textarea:focus {
+    outline: none;
+    color: black;
+    border-bottom: solid 1px rgb(51, 70, 243);
 }
 
 .todoItem-body {
@@ -38,7 +55,6 @@
     border-radius: 12px;
     transition: all 0.3s;
     cursor: pointer;
-
 }
 
 .todoItem-indicator:hover {

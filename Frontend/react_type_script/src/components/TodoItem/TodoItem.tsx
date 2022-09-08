@@ -12,14 +12,19 @@ const TodoItem = observer(({ todo }: ITodoItemProps) => {
         todo.setTitle(e.target.value);
     }
 
+    const onChangeDescriptionTodo = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        todo.setDescription(e.target.value);
+    }
+
     return (
         <div key={todo.id} className="todoItem">
             <div className="todoItem-body">
                 <div className="todoItem-title">
                     <input type="text" value={todo.title} onChange={onRenameTodo} />
                 </div>
-                {/* <div className="todoItem-description">{todo.description}</div> */}
-
+                <div className="todoItem-description">
+                    <textarea value={todo.description} onChange={onChangeDescriptionTodo} rows={2} />
+                </div>
             </div>
             <div className={todo.isDone ? "todoItem-indicator done" : "todoItem-indicator"} onClick={() => todo.toggle()}>
 

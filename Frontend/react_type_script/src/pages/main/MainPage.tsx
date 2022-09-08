@@ -18,7 +18,7 @@ const MainPage = (props: IMainPageProps) => {
     }, [])
 
     const onAdd = (data: FormData) => {
-        let todo = new Todo(data.title, data.done);
+        let todo = new Todo(data.title, data.description, data.done);
         RootStore.todosStore.add(todo);
         setModalVisible(false);
     }

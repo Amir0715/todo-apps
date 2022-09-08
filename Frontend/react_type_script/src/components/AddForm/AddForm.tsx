@@ -4,6 +4,7 @@ import "./addForm.css";
 
 export type FormData = {
     title: string;
+    description: string;
     done: boolean;
 }
 
@@ -27,6 +28,13 @@ const AddForm = (props: AddFormProps) => {
                 <input {...register("title", { required: true })} type="text" name="title" id="title" />
                 {
                     errors.title && <div className="form-field-error">Enter title</div>
+                }
+            </div>
+            <div className="form-field">
+                <label htmlFor="description">Description</label>
+                <textarea {...register("description", { required: true })} name="description" id="description" />
+                {
+                    errors.description && <div className="form-field-error">Enter description</div>
                 }
             </div>
             <div className="form-field">
