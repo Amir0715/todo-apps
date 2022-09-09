@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TodoApp.Application.Todos.Commands.CreateTodo;
 using TodoApp.Application.Todos.Commands.DeleteTodo;
@@ -20,6 +21,7 @@ public class TodoController : BaseController
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<TodoListVm>> GetAll()
     {
         var query = new GetTodoListQuery()
@@ -31,6 +33,7 @@ public class TodoController : BaseController
     }
     
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<ActionResult<TodoDetailsVm>> Get(Guid id)
     {
         var query = new GetTodoDetailsQuery()
@@ -43,6 +46,7 @@ public class TodoController : BaseController
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<Guid>> Create([FromBody] CreateTodoDto createTodoDto)
     {
         var command = _mapper.Map<CreateTodoCommand>(createTodoDto);
@@ -52,6 +56,7 @@ public class TodoController : BaseController
     }
     
     [HttpPut]
+    [Authorize]
     public async Task<ActionResult> Update([FromBody] UpdateTodoDto updateTodoDto)
     {
         var command = _mapper.Map<UpdateTodoCommand>(updateTodoDto);
@@ -61,6 +66,7 @@ public class TodoController : BaseController
     }
     
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<ActionResult<TodoDetailsVm>> Delete(Guid id)
     {
         var command = new DeleteTodoCommand()

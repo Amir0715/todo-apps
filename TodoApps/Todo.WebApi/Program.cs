@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TodoApp.Application;
 using TodoApp.Application.Common.Mappings;
 using TodoApp.Application.Interfaces;
@@ -26,6 +27,18 @@ builder.Services.AddCors(options =>
         policyBuilder.AllowAnyOrigin();
     });
 });
+
+builder.Services.AddAuthentication(config =>
+{
+    config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.Audience = "TodosWebApi";
+        options.Authority = "https://localhost:7030/";
+        options.RequireHttpsMetadata = false;
+    });
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -59,6 +72,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
